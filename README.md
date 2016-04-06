@@ -4,7 +4,7 @@ Running docker on debian jessie
 To clone this script:  
 ```
 sudo apt-get update
-sudo apt-get install git-core
+sudo apt-get install git-core -y
 # copy your github private key to .ssh then
 chmod 600 ~/.ssh/gihub_rsa
 eval "$(ssh-agent -s)"
