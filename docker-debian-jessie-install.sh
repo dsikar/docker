@@ -1,5 +1,8 @@
 #!/usr/bin
 
+# Commmands pretty much copied and pasted from
+# https://docs.docker.com/engine/installation/linux/debian/
+
 # NB sudo su before running
 
 apt-get purge lxc-docker*
