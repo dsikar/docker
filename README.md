@@ -17,6 +17,6 @@ git config --global push.default simple
 
 Then run 
 ```
-sudo su
 . docker/docker-debian-jessie-install.sh
 ```
+
