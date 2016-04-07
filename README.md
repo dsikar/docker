@@ -27,7 +27,7 @@ Once installed:
 sudo usermod -aG docker dsikar
 # search images
 docker search httpd
-# run image
+# run container
 docker run hello-world
 # run in detached mode (background)
 docker run -d -P tomcat:7
