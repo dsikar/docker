@@ -67,4 +67,6 @@ docker login
 docker push dsikar/supa-repo:1.0
 # pull
 docker pull dsikar/supa-repo:1.0
+# mount local directory to container
+docker run -itv /home/dsikar/docker:/test/docker test:1.0 bash
 ```
