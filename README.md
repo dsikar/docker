@@ -20,3 +20,21 @@ Then run
 . ~/docker/docker-debian-jessie-install.sh
 ```
 
+Once installed:  
+
+```
+# add yourself to docker group
+sudo usermod -aG docker dsikar
+# search images
+docker search httpd
+# run image
+docker run hello-world
+# run in detached mode (background)
+docker run -d -P tomcat:7
+docker run -d -P httpd
+docker run -d -P nginx
+# determine port mapping
+docker ps
+```
+
+![Docker images running in detached mode](https://c2.staticflickr.com/2/1616/25690945623_1c5a231d0d_o.png)
