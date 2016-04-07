@@ -58,5 +58,11 @@ docker ps | awk '{ system("docker stop " $1) }'
 docker ps -a | awk '{ system("docker rm " $1) }'
 # delete all local images
 docker images | awk '{ system("docker rmi " $3) }'
-
+# push an image
+# 1. create repository on hub.docker.com
+# 2. create image with same repository name as in 1.
+# 3. login to docker
+docker login
+# push
+docker push dsikar/supa-repo:1.0
 ```
