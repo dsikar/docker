@@ -65,4 +65,6 @@ docker images | awk '{ system("docker rmi " $3) }'
 docker login
 # push
 docker push dsikar/supa-repo:1.0
+# pull
+docker pull dsikar/supa-repo:1.0
 ```
