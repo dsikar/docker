@@ -1,4 +1,4 @@
-Running docker on debian jessie
+Running docker on Ubuntu Precise
 ==============
 
 To clone this script and update from wherever you are:  
@@ -17,6 +17,6 @@ git config --global push.default simple
 
 Then run 
 ```
-. ~/docker/docker-debian-jessie-install.sh
+. ~/docker/docker-install.sh
 ```
 
