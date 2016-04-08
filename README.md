@@ -41,6 +41,8 @@ docker ps
 
 More options:
 ```
+# map port
+docker run -d -p 80:80 nginx:1.7
 # run command 
 docker run -d centos:7 ping 127.0.0.1 -c 10
 # create image by committing
@@ -69,4 +71,18 @@ docker push dsikar/supa-repo:1.0
 docker pull dsikar/supa-repo:1.0
 # mount local directory to container
 docker run -itv /home/dsikar/docker:/test/docker test:1.0 bash
+# linking containers (and naming)
+docker run -d --name database mysql
+docker run -it --name www --link database:db ubuntu:14.04 bash
+# inside container
+cat /etc/hosts
+# outside container ~ local IPs match
+docker inspect database
+# access running container
+docker exec -it a11f94e58463 bash
+# automated builds with github
+# 1. create github repository ~ must contain Dockerfile
+# 2. link hub.docker.com repo with github repo
+# 3. commit changes ~ docker will autobuild
+
 ```
