@@ -78,11 +78,24 @@ docker run -it --name www --link database:db ubuntu:14.04 bash
 cat /etc/hosts
 # outside container ~ local IPs match
 docker inspect database
+
 # access running container
 docker exec -it a11f94e58463 bash
+
 # automated builds with github
 # 1. create github repository ~ must contain Dockerfile
 # 2. link hub.docker.com repo with github repo
 # 3. commit changes ~ docker will autobuild
+
+# viewing logs
+ docker logs -f --tail 1 stupefied_archimedes
+
+ # inspect JSON output
+ docker inspect --format='{{.NetworkSettings.IPAddress}}' backstabbing_noether
+
+ # kill docker
+ sudo kill $(pidof docker)
+
+
 
 ```
