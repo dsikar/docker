@@ -90,12 +90,50 @@ docker exec -it a11f94e58463 bash
 # viewing logs
  docker logs -f --tail 1 stupefied_archimedes
 
- # inspect JSON output
- docker inspect --format='{{.NetworkSettings.IPAddress}}' backstabbing_noether
+# inspect container properties
+docker inspect <container id or name>
 
- # kill docker
- sudo kill $(pidof docker)
+# inspect JSON output
+docker inspect --format='{{.NetworkSettings.IPAddress}}' backstabbing_noether
+docker inspect <container id or name> | grep IPAddress
 
+# kill docker
+sudo kill $(pidof docker)
+ 
+# map local volume to container volume
+doker run -d -P -v /pathToLocalVolume:/pathToContainerVolume
+ 
+# stop, start, restart docker service
+sudo service docker restart
 
+# docker daemon config file
+cat /etc/default/docker
 
+# run registry server
+docker run -d -p 5000:5000 registry:2.0
+
+# tag, push and pull docker image from registry server
+docker tag <container id> localhost:5000/myapp:1.0
+docker push localhost:5000/myapp:1.0
+docker pull localhost:5000/myapp:1.0
+
+# REMOTE GUEST
+# creating insecure registry entry on remote server (insecure alternative to TLS)
+sudo vim /etc/default/docker
+# add line
+DOCKER_OPTS="--insecure-registry <ip address>:5000"
+
+# REMOTE GUEST
+# restart service
+sudo service docker restart
+
+# REMOTE GUEST
+# pull image
+sudo docker pull <ip address>:5000/myapp:1.0
+
+# REMOTE GUEST
+# push image into insecure registry
+docker tag <container id> <ip address>:5000/mynewapp:1.0
+docker push <ip address>:5000/mynewapp:1.0
+docker pull <ip address>:5000/mynewapp:1.0
 ```
