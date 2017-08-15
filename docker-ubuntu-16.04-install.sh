@@ -23,3 +23,5 @@ sudo apt-get install docker-ce
 
 # verify
 sudo docker run hello-world
+
+echo "Run commands with sudo."
