@@ -54,6 +54,8 @@ docker build -t dsikar/testimage:1.0 .
 # use CMD and ENTRYPOINT in Dockerfile
 # run container
 docker run -it dsikar/testimage:1.1
+# list containers
+docker ps
 # stop all containers
 docker ps | awk '{ system("docker stop " $1) }'
 # remove all containers
