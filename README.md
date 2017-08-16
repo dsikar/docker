@@ -25,6 +25,8 @@ Once installed:
 ```
 # add yourself to docker group
 sudo usermod -aG docker dsikar
+# add alias
+alias docker="sudo --group docker docker"
 # search images
 docker search httpd
 # run container
