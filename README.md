@@ -141,3 +141,21 @@ docker tag <container id> <ip address>:5000/mynewapp:1.0
 docker push <ip address>:5000/mynewapp:1.0
 docker pull <ip address>:5000/mynewapp:1.0
 ```
+
+Things that can be done
+```
+# Run Spark
+# as per https://github.com/sequenceiq/docker-spark
+# pull
+docker pull sequenceiq/spark:1.6.0
+# build
+docker build --rm -t sequenceiq/spark:1.6.0 .
+# run - make sure at least 2GB memory available
+docker run -it -p 8088:8088 -p 8042:8042 -p 4040:4040 -h sandbox sequenceiq/spark:1.6.0 bash
+# run spark shell
+spark-shell \
+--master yarn-client \
+--driver-memory 1g \
+--executor-memory 1g \
+--executor-cores 1
+```
